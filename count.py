@@ -1,6 +1,6 @@
 import pandas as pd
 
-df = pd.read_csv('ballot_data_2.csv')
+df = pd.read_csv('ballot_data.csv')
 df.drop('Timestamp', axis=1, inplace=True)
 df.drop('Name', axis=1, inplace=True)
 df.drop(' [Row 1]', axis=1, inplace=True)
@@ -62,7 +62,7 @@ for race_name, race_df in race_dfs_copy.items():
 
         # 2) If a candidate has > 60%, they win
         max_votes = max(candidates.values())
-        if max_votes / len(race_df) > 0.6:                  
+        if max_votes / len(race_df) >= 0.6:                  
             winner = max(candidates, key=candidates.get)
             print("Winner: ", candidates)
             print(f"{winner} wins the {race_name} endorsement with {max_votes} votes ({max_votes / len(race_df) * 100:.2f}%)")
