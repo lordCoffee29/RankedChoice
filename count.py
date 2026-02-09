@@ -102,11 +102,13 @@ def process_ranked_choice_voting(filename):
                     candidates_to_eliminate = [candidate for candidate in candidates_to_eliminate if candidates_back.get(candidate, float('inf')) == previous_min_votes]
 
                     # TO-DO: what do we do here?
+                    # Use the second place votes as a tie breaker (ballot[1])
                     if len(candidates_to_eliminate) > 1:
-                        print("Idk what to do help :(")
-                        print("Candidates tied for elimination in both rounds: ", candidates_to_eliminate)
-                        race_result['final_message'] = f"Unable to determine winner for {race_name} - tie between {', '.join(candidates_to_eliminate)}"
-                        race_result['rounds'].append(round_info)
+                        # print("Idk what to do help :(")
+                        # print("Candidates tied for elimination in both rounds: ", candidates_to_eliminate)
+                        # race_result['final_message'] = f"Unable to determine winner for {race_name} - tie between {', '.join(candidates_to_eliminate)}"
+                        # race_result['rounds'].append(round_info)
+                        print("Second place: ", ballot[1])
                         elimination = False
                         break
                     

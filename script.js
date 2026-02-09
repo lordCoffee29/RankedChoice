@@ -26,7 +26,7 @@ uploadBtn.addEventListener('click', async () => {
         const formData = new FormData();
         formData.append('file', file);
         
-        const response = await fetch('http://localhost:5001/process', {
+        const response = await fetch('/process', {
             method: 'POST',
             body: formData
         });
